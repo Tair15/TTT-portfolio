@@ -26,6 +26,14 @@
   color-scheme: light;
 }
 
+/* tighter page margins on phones — the 48px desktop min eats a quarter of a
+   narrow screen and throws the content off-centre against the red margin line */
+@media (max-width: 600px) {
+  :root {
+    --gutter: 20px;
+  }
+}
+
 /* dark notebook: graphite paper, chalky ink, the pencil colours stay
    saturated so they still read as coloured-pencil on a dark page */
 :root[data-theme='dark'] {
