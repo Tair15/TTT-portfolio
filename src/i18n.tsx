@@ -106,7 +106,12 @@ export const translations = {
           dates: '2025 — 2027 (expected)',
           bullets: ['GPA 3.8 / 4.0'],
         },
-      ],
+      ] as Array<{
+        title: string;
+        position: string;
+        dates: string;
+        bullets?: string[];
+      }>,
     },
     contact: {
       skills: 'Skills',
