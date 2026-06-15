@@ -1,0 +1,15 @@
+.layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.item {
+  position: absolute;
+}
+
+.shavings {
+  position: absolute;
+  opacity: 0.9;
+}

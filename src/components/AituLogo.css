@@ -1,0 +1,36 @@
+/* rotating-rings animation reused from the C:\card project */
+
+.aitu-logo {
+  width: 100%;
+  height: auto;
+}
+
+@keyframes aitu-rotate-cw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes aitu-rotate-ccw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.aitu-ring-1,
+.aitu-ring-3 {
+  transform-origin: 25.3% 49.6%;
+  animation: aitu-rotate-cw 10s linear infinite;
+}
+
+.aitu-ring-2,
+.aitu-ring-4 {
+  transform-origin: 25.3% 49.6%;
+  animation: aitu-rotate-ccw 8s linear infinite;
+}

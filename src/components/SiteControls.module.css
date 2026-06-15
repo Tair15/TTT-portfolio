@@ -1,0 +1,43 @@
+.panel {
+  position: fixed;
+  top: clamp(14px, 2.5vw, 26px);
+  right: clamp(14px, 2.5vw, 26px);
+  z-index: 50;
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 1;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--ink);
+  background: var(--card-surface);
+  /* wobbly hand-drawn border, same trick as the skill tags */
+  border: 1.8px solid var(--ink-soft);
+  border-radius: 14px 11px 13px 10px / 10px 13px 11px 14px;
+  box-shadow: 1px 2px 0 rgba(0, 0, 0, 0.12);
+  transition:
+    transform 0.15s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px) rotate(-3deg);
+}
+
+.btn:active {
+  transform: translateY(0) rotate(0);
+}
+
+.lang {
+  font-size: 15px;
+  letter-spacing: 1px;
+}

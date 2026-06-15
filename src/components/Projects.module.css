@@ -1,0 +1,96 @@
+.section {
+  position: relative;
+  z-index: 2;
+  padding: clamp(60px, 12vh, 140px) var(--gutter);
+}
+
+.title {
+  display: inline-block;
+  font-size: clamp(34px, 4.5vw, 52px);
+  letter-spacing: 2px;
+  margin-bottom: 48px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(28px, 4vw, 56px);
+}
+
+/* a card taped into the notebook */
+.card {
+  position: relative;
+  background: var(--card-surface);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 26px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 90px;
+  height: 24px;
+  background: rgba(255, 235, 160, 0.65);
+  border-left: 1px dashed rgba(0, 0, 0, 0.12);
+  border-right: 1px dashed rgba(0, 0, 0, 0.12);
+}
+
+.screenshot {
+  height: 150px;
+  border: 2px dashed var(--ink-faint);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-faint);
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+/* a real screenshot keeps its own aspect ratio (no cropping, no stretch) */
+img.screenshot {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 792 / 450;
+  object-fit: contain;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.cardTitle {
+  font-size: clamp(19px, 2vw, 24px);
+}
+
+.cardText {
+  font-size: clamp(14px, 1.6vw, 17px);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  flex-grow: 1;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  font-size: 13px;
+  padding: 3px 10px;
+  border: 1.5px solid var(--pencil-blue);
+  border-radius: 999px 600px 999px 700px / 600px 999px 700px 999px;
+  color: var(--pencil-blue);
+}
+
+.margin {
+  margin-top: 40px;
+  font-size: 18px;
+  color: var(--ink-faint);
+}

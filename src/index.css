@@ -1,0 +1,150 @@
+@font-face {
+  font-family: 'KomicnicksCaps';
+  src: url('/KomicnicksCaps-Regular_0.ttf') format('truetype');
+  font-display: swap;
+}
+
+:root {
+  --paper: #fdfdf9;
+  --paper-rgb: 253, 253, 249; /* used by the eraser smear gradient */
+  --grid-line: rgba(108, 145, 196, 0.16);
+  --cell: 20px;
+
+  --ink: #1c1c1c;
+  --ink-soft: #555;
+  --ink-faint: #999;
+  --card-bg: #f0ead6;
+  --card-surface: #fffdf4; /* taped-in cards (projects, experience) */
+
+  --pencil-red: #e63946;
+  --pencil-blue: #457b9d;
+  --pencil-green: #2a9d8f;
+  --pencil-orange: #f4a261;
+
+  --gutter: clamp(48px, 9vw, 130px);
+
+  color-scheme: light;
+}
+
+/* dark notebook: graphite paper, chalky ink, the pencil colours stay
+   saturated so they still read as coloured-pencil on a dark page */
+:root[data-theme='dark'] {
+  --paper: #15171c;
+  --paper-rgb: 21, 23, 28;
+  --grid-line: rgba(120, 150, 210, 0.1);
+
+  --ink: #e9e7df;
+  --ink-soft: #aba79d;
+  --ink-faint: #6f6c64;
+  --card-bg: #585755;
+  --card-surface: #20232a;
+
+  --pencil-red: #ff6b76;
+  --pencil-blue: #6fb2d6;
+  --pencil-green: #54c4b3;
+  --pencil-orange: #f6b07a;
+
+  color-scheme: dark;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-family: 'KomicnicksCaps', 'Segoe Print', 'Comic Sans MS', cursive;
+  color: var(--ink);
+  overflow-x: hidden;
+  /* grid notebook paper, ~20px cells */
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(0deg, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--cell) var(--cell);
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+/* ---- notebook body: everything below the hero ---- */
+
+.notebook-body {
+  position: relative;
+}
+
+/* classic red margin line down the whole notebook; starts one viewport
+   higher, on the hero's last frame with the desk stationery (the opaque
+   desk plane hides it there until it dissolves) */
+.notebook-body::before {
+  content: '';
+  position: absolute;
+  top: -100vh;
+  bottom: 0;
+  left: calc(var(--gutter) * 0.45);
+  width: 2px;
+  background: var(--pencil-red);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.site-footer {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 40px var(--gutter) 56px;
+  font-size: 18px;
+  color: var(--ink-faint);
+  letter-spacing: 1px;
+}
+
+/* ---- shared hand-drawn helpers ---- */
+
+/* eraser mark: slightly smeared, half-rubbed-out text */
+.eraser-mark {
+  position: relative;
+  display: inline-block;
+  color: var(--ink-soft);
+  opacity: 0.4;
+  filter: blur(0.7px);
+  user-select: none;
+  pointer-events: none;
+}
+
+.eraser-mark::after {
+  content: '';
+  position: absolute;
+  inset: -15% -8%;
+  background: linear-gradient(
+    105deg,
+    transparent 10%,
+    rgba(var(--paper-rgb), 0.85) 35%,
+    rgba(var(--paper-rgb), 0.55) 55%,
+    transparent 85%
+  );
+  transform: rotate(-3deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

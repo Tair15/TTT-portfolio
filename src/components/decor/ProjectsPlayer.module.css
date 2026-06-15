@@ -1,0 +1,22 @@
+/* the libGDX game hero, escaping the Samsung card to chase the cursor */
+.player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 64px;
+  height: 64px;
+  /* spritesheet is 512x256; shown at 2x => 1024x512 */
+  background-image: url('/player-sprite.png');
+  background-repeat: no-repeat;
+  background-size: 1024px 512px;
+  image-rendering: pixelated;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  will-change: transform;
+}
+
+.visible {
+  opacity: 1;
+}

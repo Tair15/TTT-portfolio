@@ -1,0 +1,49 @@
+.section {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 80px);
+  padding: clamp(60px, 12vh, 140px) var(--gutter);
+  min-height: 70vh;
+}
+
+.title {
+  font-size: clamp(34px, 4.5vw, 52px);
+  letter-spacing: 2px;
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.paragraph {
+  font-size: clamp(18px, 2.2vw, 26px);
+  line-height: 1.6;
+  color: var(--ink);
+  max-width: 56ch;
+}
+
+.note {
+  margin-top: 18px;
+  font-size: clamp(15px, 1.6vw, 19px);
+  color: var(--ink-faint);
+}
+
+.illustration {
+  justify-self: end;
+}
+
+.shavings {
+  width: min(100%, 420px);
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.12));
+}
+
+@media (max-width: 760px) {
+  .section {
+    grid-template-columns: 1fr;
+  }
+
+  .illustration {
+    justify-self: center;
+  }
+}

@@ -1,0 +1,161 @@
+.section {
+  /* scroll runway for the fall animation */
+  height: 280vh;
+  position: relative;
+  z-index: 2;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* tilting desk plane the card falls onto; fades out to reveal the paper */
+.gridPlane {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* the desk surface itself: grid + doodles, scaled as one piece while the
+   camera zooms in. Oversized just enough that its edges never show at 45°
+   tilt — keep it tight, the composited layer texture costs GPU memory. */
+.surface {
+  position: absolute;
+  inset: -15.4% -8.4%;
+  background-color: #fff;
+  background-image:
+    linear-gradient(0deg, #e0e0e0 1px, transparent 1px),
+    linear-gradient(90deg, #e0e0e0 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-position: center;
+  /* keep the rasterized texture and stretch it on the GPU instead of
+     re-rasterizing this big layer while the zoom animates */
+  will-change: transform;
+}
+
+.cardViewport {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+}
+
+.card {
+  position: relative;
+  /* standard business-card proportions (3.5 x 2) at any viewport;
+     the vh term keeps the fixed-ratio card from overflowing short screens */
+  aspect-ratio: 7 / 4;
+  width: min(88vw, 148vh, 1500px);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.cardFront,
+.cardBack {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--card-bg);
+  box-shadow: 0 14px 45px rgba(0, 0, 0, 0.22);
+  border-radius: 10px;
+  backface-visibility: hidden;
+}
+
+.cardBack {
+  transform: rotateY(180deg);
+}
+
+.backLogo {
+  width: 60%;
+  height: auto;
+}
+
+.cardTop {
+  position: absolute;
+  top: clamp(16px, 4vh, 40px);
+  left: clamp(16px, 4vw, 40px);
+  right: clamp(16px, 4vw, 40px);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.phone {
+  font-size: clamp(18px, 3vw, 46px);
+}
+
+.cornerLogo {
+  height: clamp(56px, 13vh, 140px);
+  width: auto;
+}
+
+.cardCenter {
+  text-align: center;
+  padding: 0 16px;
+}
+
+.name {
+  font-size: clamp(30px, 5.4vw, 78px);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.role {
+  font-size: clamp(20px, 3.5vw, 50px);
+  letter-spacing: 1px;
+  color: var(--ink-soft);
+}
+
+.cardBottom {
+  position: absolute;
+  bottom: clamp(16px, 4vh, 40px);
+  display: flex;
+  gap: clamp(16px, 4vw, 48px);
+  font-size: clamp(15px, 2.6vw, 36px);
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 12px;
+}
+
+.scrollHint {
+  position: absolute;
+  bottom: 4vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: var(--ink-soft);
+}
+
+.hintArrow {
+  width: 28px;
+  height: 42px;
+}
+
+/* dark theme: the desk plane matches the rest of the page (dark paper +
+   faint grid) instead of staying white, and the black logo flips to white */
+:global(:root[data-theme='dark']) .surface {
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(0deg, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+}
+
+:global(:root[data-theme='dark']) .cornerLogo,
+:global(:root[data-theme='dark']) .backLogo {
+  /* brightness(0) flattens the logo to black, invert(1) turns it white */
+  filter: brightness(0) invert(1);
+}
+
