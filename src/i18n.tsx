@@ -44,14 +44,14 @@ export const translations = {
       morePost: ' soon…',
       items: [
         {
-          title: 'Blockchain messenger',
-          description:
-            'A secure messaging web app built on a blockchain network (React, JavaScript, Solana, smart contracts), using Solana as the backbone for tamper-proof messaging.',
-        },
-        {
           title: 'Android game — Samsung Innovation Campus',
           description:
             'A mobile game in Java (libGDX, ECS architecture) that took 1st place among 100+ participants across Kazakhstan in 2024.',
+        },
+        {
+          title: 'Blockchain messenger',
+          description:
+            'A secure messaging web app built on a blockchain network (React, JavaScript, Solana, smart contracts), using Solana as the backbone for tamper-proof messaging.',
         },
       ],
     },
@@ -116,7 +116,8 @@ export const translations = {
     contact: {
       skills: 'Skills',
       contacts: 'Contacts',
-      cv: 'CV (pdf) — TODO',
+      cv: 'Download CV (pdf)',
+      cvOther: 'in Russian',
       skillLabels: ['Frontend', 'Animation', 'Tools'],
       contactLabels: ['email', 'telegram', 'phone'],
     },
@@ -144,14 +145,14 @@ export const translations = {
       morePost: ' будет…',
       items: [
         {
-          title: 'Блокчейн-мессенджер',
-          description:
-            'Безопасный веб-мессенджер на блокчейне (React, JavaScript, Solana, смарт-контракты) — в качестве основной сети использовал Solana.',
-        },
-        {
           title: 'Android-игра — Samsung Innovation Campus',
           description:
             'Мобильная игра на Java (libGDX, ECS-архитектура), занявшая 1-е место среди 100+ участников по всему Казахстану в 2024 году.',
+        },
+        {
+          title: 'Блокчейн-мессенджер',
+          description:
+            'Безопасный веб-мессенджер на блокчейне (React, JavaScript, Solana, смарт-контракты) — в качестве основной сети использовал Solana.',
         },
         {
           title: 'Третий проект',
@@ -220,7 +221,8 @@ export const translations = {
     contact: {
       skills: 'Навыки',
       contacts: 'Контакты',
-      cv: 'Резюме (pdf) — скоро',
+      cv: 'Скачать резюме (pdf)',
+      cvOther: 'на английском',
       skillLabels: ['Фронтенд', 'Анимация', 'Инструменты'],
       contactLabels: ['почта', 'telegram', 'телефон'],
     },

@@ -86,14 +86,45 @@
   border-color: var(--pencil-red);
 }
 
-.cvPlaceholder {
+.cvLinks {
   margin-top: 36px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* primary download — wobbly hand-drawn box like the skill tags / controls */
+.cvButton {
   display: inline-block;
-  padding: 10px 18px;
-  border: 2px dashed var(--ink-faint);
-  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 17px;
+  color: var(--pencil-blue);
+  text-decoration: none;
+  border: 2px solid var(--pencil-blue);
+  border-radius: 14px 11px 13px 10px / 10px 13px 11px 14px;
+  box-shadow: 1px 2px 0 rgba(0, 0, 0, 0.12);
+  transition: transform 0.15s ease, color 0.2s, border-color 0.2s;
+}
+
+.cvButton:hover {
+  transform: translateY(-2px) rotate(-1.5deg);
+  color: var(--pencil-red);
+  border-color: var(--pencil-red);
+}
+
+/* the other-language version, offered quietly next to it */
+.cvOther {
+  font-size: 15px;
   color: var(--ink-faint);
-  font-size: 16px;
+  text-decoration: none;
+  border-bottom: 2px dashed var(--ink-faint);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.cvOther:hover {
+  color: var(--pencil-blue);
+  border-color: var(--pencil-blue);
 }
 
 @media (max-width: 760px) {

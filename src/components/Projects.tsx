@@ -16,8 +16,8 @@ type ProjectMeta = {
 };
 
 const PROJECT_META: ProjectMeta[] = [
-  { tags: ['React', 'Solana', 'Smart contracts'] },
   { tags: ['Java', 'libGDX', 'game'], image: './wokaks-journey.jpg', game: true },
+  { tags: ['React', 'Solana', 'Smart contracts'] },
 ];
 
 export default function Projects() {

@@ -1,7 +1,11 @@
 import { motion } from 'framer-motion';
 import { InkBlot, ScribbleUnderline, Smudge } from './decor/Doodles';
-import { useT } from '../i18n';
+import { useSite, useT } from '../i18n';
 import styles from './Contact.module.css';
+
+/* CV pdfs live in public/; the one matching the current language is offered
+   first, the other stays one click away */
+const CV = { en: './cv-en.pdf', ru: './cv-ru.pdf' } as const;
 
 /*
  * Open-slot section: skills as sticky notes + how to reach me.
@@ -24,6 +28,8 @@ const CONTACTS = [
 
 export default function Contact() {
   const t = useT();
+  const { lang } = useSite();
+  const otherLang = lang === 'en' ? 'ru' : 'en';
   return (
     <section className={styles.section} id="contact">
       <div className={styles.skills}>
@@ -74,8 +80,26 @@ export default function Contact() {
             </li>
           ))}
         </ul>
-        {/* TODO: drop a CV pdf into public/ and link it here */}
-        <p className={styles.cvPlaceholder}>{t.contact.cv}</p>
+        <p className={styles.cvLinks}>
+          <a
+            href={CV[lang]}
+            className={styles.cvButton}
+            target="_blank"
+            rel="noreferrer"
+            download
+          >
+            {t.contact.cv}
+          </a>
+          <a
+            href={CV[otherLang]}
+            className={styles.cvOther}
+            target="_blank"
+            rel="noreferrer"
+            download
+          >
+            {t.contact.cvOther}
+          </a>
+        </p>
       </div>
 
       <InkBlot style={{ right: '6%', bottom: '12%', transform: 'rotate(140deg)' }} />
