@@ -62,7 +62,7 @@ export const translations = {
       workItems: [
         {
           title: 'Astana International Exchange',
-          position: 'Frontend Developer · Angular, TS',
+          position: 'Frontend Developer · Angular, TypeScript',
           dates: '03.2026 — present',
           bullets: [
             'real-time market-data dashboards for the Astana International Exchange',
@@ -71,7 +71,7 @@ export const translations = {
         },
         {
           title: 'Nitec',
-          position: 'Full Stack Developer · React, Python, FastAPI',
+          position: 'Frontend Developer · React, JavaScript, FastAPI',
           dates: '09.2023 — 03.2026',
           bullets: [
             'CRM & WFM modules + integration with the AITU superapp',
@@ -167,7 +167,7 @@ export const translations = {
       workItems: [
         {
           title: 'Astana International Exchange',
-          position: 'Фронтенд-разработчик · Angular, TS',
+          position: 'Фронтенд-разработчик · Angular, TypeScript',
           dates: '03.2026 — наст. время',
           bullets: [
             'дашборды рыночных данных в реальном времени для Astana International Exchange',
@@ -176,7 +176,7 @@ export const translations = {
         },
         {
           title: 'Nitec',
-          position: 'Full Stack разработчик · React, Python, FastAPI',
+          position: 'Фронтенд-разработчик · React, JavaScript, FastAPI',
           dates: '09.2023 — 03.2026',
           bullets: [
             'модули CRM и WFM + интеграция с суперприложением AITU',
