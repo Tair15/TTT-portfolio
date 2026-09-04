@@ -72,7 +72,7 @@ export const translations = {
         {
           title: 'Nitec',
           position: 'Frontend Developer · React, JavaScript, FastAPI',
-          dates: '09.2023 — 03.2026',
+          dates: '08.2023 — 03.2026',
           bullets: [
             'CRM & WFM modules + integration with the AITU superapp',
             'automated reporting: from 4 hours of manual work to one click',
@@ -168,7 +168,7 @@ export const translations = {
         {
           title: 'Astana International Exchange',
           position: 'Фронтенд-разработчик · Angular, TypeScript',
-          dates: '03.2026 — наст. время',
+          dates: '01.2026 — наст. время',
           bullets: [
             'дашборды рыночных данных в реальном времени для Astana International Exchange',
             'рефакторинг легаси-фронтенда — меньше критических багов, проще поддержка',
@@ -177,7 +177,7 @@ export const translations = {
         {
           title: 'Nitec',
           position: 'Фронтенд-разработчик · React, JavaScript, FastAPI',
-          dates: '09.2023 — 03.2026',
+          dates: '08.2023 — 03.2026',
           bullets: [
             'модули CRM и WFM + интеграция с суперприложением AITU',
             'автоматизация отчётности: с 4 часов ручной работы до одного клика',
